@@ -13,7 +13,7 @@ def screencap_to_file(local_path='/tmp/screen.png'):
     return local_path
 
 def tap(x, y):
-    # 随机偏
+    # 随机偏移
     rx = x + random.randint(-5, 5)
     ry = y + random.randint(-5, 5)
     subprocess.check_call([ADB, 'shell', 'input', 'tap', str(rx), str(ry)])
