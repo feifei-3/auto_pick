@@ -1,6 +1,6 @@
 import subprocess, time, random
 
-ADB = 'adb'  # 或者指定到adb可执行路径
+ADB = 'D:/Users/admin/Desktop/auto_pick/platform-tools/adb.exe'  # 或者指定到adb可执行路径
 
 def adb_shell(cmd):
     full = [ADB, 'shell'] + cmd.split()
