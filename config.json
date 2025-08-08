@@ -1,0 +1,13 @@
+{
+    "gs": 9,
+    "price_source": "api",
+    "api_url": "https://xxx.com/prices",
+    "api_token": "abcd1234",
+    "blacklist": ["手枪弹匣", "绷带"],
+    "whitelist": ["卡尺"],
+    "min_vpu_threshold": 5000,
+    "priority_mode": "VPU",
+    "adb_device": "emulator-5554",
+    "game_package": "com.example.game",
+    "max_crash_count": 3
+  }

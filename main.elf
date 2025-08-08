@@ -1,0 +1,31 @@
+# main.elf — 伪代码
+load_config()
+while running:
+    ensure_game_foreground()
+    wait_for_match_start(timeout=15)
+    if not in_match: restart_game(); continue
+
+    spawn_point = detect_spawn_point()
+    if spawn_point == 'far': perform_self_destruct(reason='far_spawn'); continue
+
+    move_to_hotspot(path_mode=config.safe_mode)
+
+    start_time = now()
+    while not box_full() and now() - start_time < 180:
+        screenshot = adb_screencap()
+        items = ocr_find_items(screenshot)
+        if ocr_failures_exceed(3): click_pick_all_items(); break
+
+        for item in rank_items_by_vpu(items):
+            if should_pick(item):
+                do_drag_to_box(item)
+                sleep(randomized)
+                if box_full(): break
+
+        sleep(0.5)
+
+    if not box_full(): perform_self_destruct(reason='timeout')
+    else: perform_self_destruct(reason='full')
+
+    post_round_cleanup()
+    continue
